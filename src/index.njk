@@ -1,0 +1,430 @@
+---
+title: Maitre Helie — Notaire a Jumieges
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ title }}</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold: #B8965A;
+  --navy: #3E5F8A;
+  --dark: #1A1A18;
+  --cream: #F5F0E8;
+  --text: #3A3530;
+  --text-light: #7A7068;
+  --white: #FDFCFA;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+a { color: var(--gold); text-decoration: none; transition: color 0.3s; }
+a:hover { color: var(--dark); }
+img { max-width: 100%; display: block; }
+.tag { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--dark); line-height: 1.15; margin-bottom: 1.5rem; }
+.section-title em { font-style: italic; color: var(--gold); }
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+nav { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 4rem; background: rgba(20,40,80,0.35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 100; }
+.nav-logo img { height: 100px; width: auto; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.72rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+.nav-links a:hover { color: var(--gold); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-burger span { display: block; width: 24px; height: 2px; background: #fff; transition: 0.3s; border-radius: 2px; }
+.hero { position: relative; min-height: 90vh; display: flex; align-items: flex-end; }
+.hero-bg { position: absolute; inset: 0; background: url("{{ hero.image }}") center/cover no-repeat; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(20,40,100,0.55), rgba(20,40,100,0.75)); }
+.hero-content { position: relative; z-index: 2; color: #fff; padding: 10rem 6rem 6rem; max-width: 680px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-title em { color: var(--gold); font-style: italic; }
+.hero-desc { font-size: 0.9rem; line-height: 1.8; color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; max-width: 420px; }
+.hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; color: #fff; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; border-bottom: 1px solid rgba(184,150,90,0.5); padding-bottom: 0.25rem; transition: 0.3s; }
+.hero-cta::after { content: "→"; color: var(--gold); transition: transform 0.3s; }
+.hero-cta:hover { color: var(--gold); }
+.hero-cta:hover::after { transform: translateX(4px); }
+.wave { position: absolute; bottom: -2px; left: 0; width: 100%; z-index: 3; line-height: 0; }
+.wave svg { display: block; width: 100%; height: 80px; }
+section { padding: 5rem 6rem; }
+.accroche { text-align: center; padding: 4rem 6rem 2rem; }
+.accroche p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 300; color: var(--text); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+.accroche em { color: var(--gold); font-style: italic; }
+#services { padding: 3rem 0; }
+#services .section-title { padding: 0 6rem; margin-bottom: 2rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(184,150,90,0.2); }
+.service-card { background: var(--navy); padding: 3rem 2.5rem; display: block; text-decoration: none; transition: background 0.3s; }
+.service-card:hover { background: rgba(0,33,115,0.85); color: inherit; }
+.service-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); margin-bottom: 1.25rem; line-height: 1; }
+.service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 0.75rem; }
+.service-desc { font-size: 0.8rem; line-height: 1.7; color: rgba(245,240,232,0.5); font-weight: 300; }
+#temoignage { background: var(--cream); padding: 3rem 2rem; text-align: center; }
+.temoignage-wrap { max-width: 760px; margin: 0 auto; }
+.temoignage-viewport { overflow: hidden; }
+.temoignage-track { display: flex; transition: transform 0.5s ease; }
+.temoignage-item { flex: 0 0 100%; padding: 2rem 1rem; }
+.temoignage-item blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 1.5rem; }
+.temoignage-item cite { font-family: 'Caveat', cursive; font-size: 1.6rem; color: var(--gold); font-style: normal; }
+.temoignage-nav { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 1.5rem; }
+.temoignage-btn { background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--gold); width: 40px; height: 40px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+.temoignage-btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+.temoignage-dots { display: flex; gap: 0.5rem; }
+.temoignage-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(58,53,48,0.25); cursor: pointer; transition: background 0.3s; }
+.temoignage-dots span.active { background: var(--gold); }
+#presentation { background: var(--white); }
+.pres-photo { width: 100%; height: 450px; background: url("{{ hero.image }}") center/cover no-repeat; border-radius: 4px; margin-bottom: 4rem; }
+.pres-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; align-items: start; }
+.pres-text p { font-size: 0.88rem; line-height: 1.9; color: var(--text-light); margin-bottom: 1.25rem; font-weight: 300; }
+.pres-signature { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: var(--gold); margin-top: 1.5rem; }
+.pres-stats { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 1rem; }
+.pres-stat { border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+.pres-stat-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--dark); line-height: 1.1; }
+.pres-stat-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-top: 0.4rem; }
+#carousel { background: var(--cream); padding: 4rem 6rem; position: relative; overflow: hidden; }
+.carousel-container { position: relative; overflow: hidden; border-radius: 4px; }
+.carousel-track { display: flex; gap: 1rem; transition: transform 0.5s ease; }
+.carousel-item { min-width: 280px; flex-shrink: 0; border-radius: 4px; overflow: hidden; }
+.carousel-item img { width: 100%; height: 200px; object-fit: cover; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+.carousel-btn:hover { background: var(--gold); }
+.carousel-btn.prev { left: 1rem; }
+.carousel-btn.next { right: 1rem; }
+#rendez_vous { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; background: var(--cream); padding: 4rem 6rem; border-top: 1px solid rgba(184,150,90,0.2); }
+.rdv-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
+.rdv-item p { font-size: 0.85rem; line-height: 1.7; color: var(--text-light); font-weight: 300; max-width: 240px; }
+#contact { background: var(--cream); padding: 5rem 6rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3rem; }
+.contact-info { display: flex; flex-direction: column; gap: 2rem; }
+.contact-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--dark); }
+.contact-item h4 { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+.contact-item p { font-size: 0.85rem; line-height: 1.7; color: var(--text); font-weight: 300; }
+.btn-rdv { display: inline-flex; align-items: center; justify-content: center; background: var(--navy); color: #fff; padding: 0.85rem 2rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; transition: background 0.3s; align-self: flex-start; }
+.btn-rdv:hover { background: var(--gold); color: #fff; }
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--dark); }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
+.form-group input, .form-group select, .form-group textarea { background: transparent; border: none; border-bottom: 1px solid rgba(58,53,48,0.2); padding: 0.65rem 0; font-size: 0.88rem; color: var(--dark); font-family: 'Jost', sans-serif; transition: border-color 0.3s; outline: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.btn-submit { align-self: flex-start; background: var(--navy); color: var(--cream); border: none; padding: 0.9rem 2.5rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: background 0.3s; }
+.btn-submit:hover { background: var(--gold); }
+footer { background: var(--navy); color: rgba(245,240,232,0.5); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; font-size: 0.72rem; letter-spacing: 0.08em; }
+footer span { color: var(--gold); }
+.footer-social { display: flex; gap: 1.5rem; }
+.footer-social a { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(245,240,232,0.5); font-size: 0.68rem; transition: color 0.3s; }
+.footer-social a:hover { color: var(--gold); }
+.footer-social svg { width: 25px; height: 25px; }
+@media (max-width: 1100px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 900px) {
+  nav { padding: 1rem 2rem; }
+  .nav-links { display: none; flex-direction: column; gap: 1.5rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(20,40,80,0.97); padding: 2rem; }
+  .nav-links.open { display: flex; }
+  .nav-burger { display: flex; }
+  section { padding: 4rem 2rem; }
+  .accroche { padding: 3rem 2rem 1.5rem; }
+  .hero-content { padding: 8rem 2rem 5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  #services .section-title { padding: 0 2rem; }
+  .pres-photo { height: 300px; margin-bottom: 2.5rem; }
+  .pres-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pres-stats { flex-direction: row; flex-wrap: wrap; gap: 2rem; }
+  #carousel { padding: 4rem 2rem; }
+  #rendez_vous { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+  .rdv-item { max-width: 320px; margin: 0 auto; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  #contact { padding: 4rem 2rem; }
+  footer { flex-direction: column; text-align: center; padding: 2rem; }
+  .footer-social { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .hero-content { padding: 7rem 1.5rem 4rem; }
+  .service-card { padding: 2rem 1.5rem; }
+  .pres-stats { flex-direction: column; }
+  .temoignage-item blockquote { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#accueil" class="nav-logo">
+    <img src="/images/logo.png" alt="Maitre Helie Notaire"/>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#presentation">L'office</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="Lien_utile.html">Liens utiles</a></li>
+    <li><a href="{{ contact.paiement_url }}" target="_blank">Paiement</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="tag">{{ hero.tag }}</span>
+    <h1 class="hero-title">{{ hero.titre | safe }}</h1>
+    <p class="hero-desc">{{ hero.description }}</p>
+    <a href="#contact" class="hero-cta">Prendre rendez-vous</a>
+  </div>
+  <div class="wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,80 720,0 1080,50 C1260,75 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--white)" opacity="0.5"/>
+      <path d="M0,55 C300,20 700,80 1000,50 C1200,30 1350,65 1440,55 L1440,80 L0,80 Z" fill="var(--white)" opacity="0.75"/>
+      <path d="M0,80 C400,30 800,80 1440,50 L1440,80 L0,80 Z" fill="var(--white)"/>
+    </svg>
+  </div>
+</div>
+
+<div class="accroche fade-in">
+  <p>{{ accroche.texte | safe }}</p>
+</div>
+
+<section id="services">
+  <h2 class="section-title fade-in">Nos Services</h2>
+  <div class="services-grid">
+    {% for service in services %}
+    <a href="{{ service.lien }}" class="service-card fade-in">
+      <p class="service-number">{{ service.numero }}</p>
+      <h3 class="service-name">{{ service.nom }}</h3>
+      <p class="service-desc">{{ service.desc }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;margin-bottom:-1px;">
+  <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="var(--cream)"/>
+</svg>
+
+<section id="temoignage">
+  <span class="tag" style="display:block;text-align:center;">Ce qu'ils disent</span>
+  <h2 class="section-title" style="text-align:center;">Temoignages</h2>
+  <div class="temoignage-wrap">
+    <div class="temoignage-viewport">
+      <div class="temoignage-track" id="temoignageTrack">
+        {% for t in temoignages %}
+        <div class="temoignage-item">
+          <blockquote>{{ t.citation }}</blockquote>
+          <cite>— {{ t.auteur }}</cite>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="temoignage-nav">
+      <button class="temoignage-btn" id="tPrev">&#8249;</button>
+      <div class="temoignage-dots" id="tDots"></div>
+      <button class="temoignage-btn" id="tNext">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;margin-top:-1px;transform:scaleY(-1);">
+  <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="var(--cream)"/>
+</svg>
+
+<section id="presentation">
+  <div class="pres-photo fade-in"></div>
+  <div class="pres-grid">
+    <div class="pres-text">
+      <span class="tag fade-in">L'office</span>
+      <h2 class="section-title fade-in">Etre <em>bien accompagne</em> aux moments qui comptent.</h2>
+      <p class="fade-in">{{ presentation.para1 }}</p>
+      <p class="fade-in">{{ presentation.para2 }}</p>
+      <p class="fade-in">{{ presentation.para3 }}</p>
+      <p class="fade-in">{{ presentation.para4 }}</p>
+      <p class="pres-signature fade-in">{{ presentation.signature }}</p>
+    </div>
+    <div class="pres-stats fade-in">
+      {% for stat in presentation.stats %}
+      <div class="pres-stat">
+        <p class="pres-stat-number">{{ stat.nombre }}</p>
+        <p class="pres-stat-label">{{ stat.label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;margin-bottom:-1px;">
+  <path d="M0,20 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="var(--cream)"/>
+</svg>
+
+<section id="carousel">
+  <h2 class="section-title fade-in">Decouvrez notre office</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-item"><img src="/images/Image.jpeg" alt="Cabinet 1"/></div>
+      <div class="carousel-item"><img src="/images/famille.jpg" alt="Cabinet 2"/></div>
+      <div class="carousel-item"><img src="/images/main.jpg" alt="Cabinet 3"/></div>
+    </div>
+    <button class="carousel-btn prev" id="cPrev">&#8249;</button>
+    <button class="carousel-btn next" id="cNext">&#8250;</button>
+  </div>
+</section>
+
+<section id="rendez_vous">
+  <div class="rdv-item fade-in">
+    <svg viewBox="0 0 64 64" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="12" fill="var(--navy)"/>
+      <rect x="14" y="18" width="36" height="30" rx="2" stroke="white" stroke-width="2"/>
+      <line x1="14" y1="26" x2="50" y2="26" stroke="white" stroke-width="2"/>
+      <line x1="22" y1="14" x2="22" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="42" y1="14" x2="42" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M26 36l4 4 8-8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p>Prise de rendez-vous en ligne disponible 24h/24.</p>
+  </div>
+  <div class="rdv-item fade-in">
+    <svg viewBox="0 0 64 64" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="12" fill="var(--navy)"/>
+      <rect x="10" y="18" width="44" height="30" rx="2" stroke="white" stroke-width="2"/>
+      <path d="M10 26l22 14 22-14" stroke="var(--gold)" stroke-width="2"/>
+    </svg>
+    <p>Rendez-vous de 08h00 a 20h00, du lundi au vendredi, et le samedi matin de 09h00 a 12h00.</p>
+  </div>
+  <div class="rdv-item fade-in">
+    <svg viewBox="0 0 64 64" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="12" fill="var(--navy)"/>
+      <rect x="12" y="14" width="40" height="28" rx="2" stroke="white" stroke-width="2"/>
+      <path d="M20 46l12 6 12-6" stroke="var(--gold)" stroke-width="2"/>
+      <circle cx="32" cy="28" r="6" stroke="var(--gold)" stroke-width="2"/>
+    </svg>
+    <p>Rendez-vous a distance par visioconference sur simple demande.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <span class="tag fade-in">Nous rejoindre</span>
+  <h2 class="section-title fade-in">Une question ? <em>Contactez-nous</em></h2>
+  <div class="contact-grid">
+    <div class="contact-info fade-in">
+      <h3>Coordonnees</h3>
+      <div class="contact-item">
+        <h4>Adresse</h4>
+        <p>{{ contact.adresse1 }}<br/>{{ contact.adresse2 }}<br/>{{ contact.adresse3 }}</p>
+      </div>
+      <div class="contact-item">
+        <h4>Email</h4>
+        <p>{{ contact.email_marion }}<br/>{{ contact.email_frank }}</p>
+      </div>
+      <a href="#" class="btn-rdv">Prendre rendez-vous</a>
+    </div>
+    <form class="contact-form fade-in" onsubmit="return false;">
+      <h3>Formulaire de contact</h3>
+      <div class="form-group">
+        <label>Destinataire</label>
+        <select name="destinataire">
+          <option disabled selected>Choisir</option>
+          <option value="marion">Marion HELIE</option>
+          <option value="frank">Frank FASSIER</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nom complet</label>
+        <input type="text" placeholder="Jean Dupont" required/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="jean@exemple.fr" required/>
+      </div>
+      <div class="form-group">
+        <label>Objet</label>
+        <input type="text" placeholder="Succession, PACS, achat immobilier" required/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Decrivez brievement votre demande"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Envoyer la demande</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>2026 <span>Marion HELIE et Frank FASSIER</span> — Office Notarial de Jumieges</p>
+  <div class="footer-social">
+    <a href="{{ contact.linkedin_marion }}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 382 382" fill="var(--gold)"><path d="M347.4 0H34.6C15.5 0 0 15.5 0 34.6v312.8C0 366.5 15.5 382 34.6 382h312.8C366.5 382 382 366.5 382 347.4V34.6C382 15.5 366.5 0 347.4 0zM118.2 329.8c0 5.6-4.5 10.1-10.1 10.1H65.3c-5.6 0-10.1-4.5-10.1-10.1V150.4c0-5.6 4.5-10.1 10.1-10.1h42.8c5.6 0 10.1 4.5 10.1 10.1v179.4zm-31.5-229.4c-22.5 0-40.7-18.2-40.7-40.7s18.2-40.7 40.7-40.7 40.7 18.2 40.7 40.7-18.2 40.7-40.7 40.7zm255.2 230.2c0 5.1-4.1 9.2-9.2 9.2h-45.9c-5.1 0-9.2-4.1-9.2-9.2v-84.2c0-12.6 3.7-55-32.8-55-28.3 0-34.1 29.1-35.2 42.1v97.1c0 5.1-4.1 9.2-9.2 9.2h-44.4c-5.1 0-9.2-4.1-9.2-9.2V149.6c0-5.1 4.1-9.2 9.2-9.2h44.4c5.1 0 9.2 4.1 9.2 9.2v15.7c10.5-15.8 26.1-27.9 59.3-27.9 73.6 0 73.1 68.7 73.1 106.5l.1 85.7z"/></svg>
+      <span>Marion HELIE</span>
+    </a>
+    <a href="{{ contact.linkedin_frank }}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 382 382" fill="var(--gold)"><path d="M347.4 0H34.6C15.5 0 0 15.5 0 34.6v312.8C0 366.5 15.5 382 34.6 382h312.8C366.5 382 382 366.5 382 347.4V34.6C382 15.5 366.5 0 347.4 0zM118.2 329.8c0 5.6-4.5 10.1-10.1 10.1H65.3c-5.6 0-10.1-4.5-10.1-10.1V150.4c0-5.6 4.5-10.1 10.1-10.1h42.8c5.6 0 10.1 4.5 10.1 10.1v179.4zm-31.5-229.4c-22.5 0-40.7-18.2-40.7-40.7s18.2-40.7 40.7-40.7 40.7 18.2 40.7 40.7-18.2 40.7-40.7 40.7zm255.2 230.2c0 5.1-4.1 9.2-9.2 9.2h-45.9c-5.1 0-9.2-4.1-9.2-9.2v-84.2c0-12.6 3.7-55-32.8-55-28.3 0-34.1 29.1-35.2 42.1v97.1c0 5.1-4.1 9.2-9.2 9.2h-44.4c-5.1 0-9.2-4.1-9.2-9.2V149.6c0-5.1 4.1-9.2 9.2-9.2h44.4c5.1 0 9.2 4.1 9.2 9.2v15.7c10.5-15.8 26.1-27.9 59.3-27.9 73.6 0 73.1 68.7 73.1 106.5l.1 85.7z"/></svg>
+      <span>Frank FASSIER</span>
+    </a>
+  </div>
+  <p>Tous droits reserves</p>
+</footer>
+
+<script>
+const burger = document.getElementById('navBurger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), 80); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const items = Array.from(track.children);
+  let idx = 0;
+  function update() {
+    const iw = items[0].getBoundingClientRect().width + 16;
+    track.style.transform = 'translateX(' + (-idx * iw) + 'px)';
+  }
+  document.getElementById('cNext').addEventListener('click', () => {
+    idx = idx < items.length - 1 ? idx + 1 : 0; update();
+  });
+  document.getElementById('cPrev').addEventListener('click', () => {
+    idx = idx > 0 ? idx - 1 : items.length - 1; update();
+  });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+(function() {
+  const track = document.getElementById('temoignageTrack');
+  const items = Array.from(track.children);
+  const dotsContainer = document.getElementById('tDots');
+  let idx = 0;
+  items.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => { idx = i; update(); });
+    dotsContainer.appendChild(dot);
+  });
+  const dots = Array.from(dotsContainer.children);
+  function update() {
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  document.getElementById('tNext').addEventListener('click', () => { idx = (idx + 1) % items.length; update(); });
+  document.getElementById('tPrev').addEventListener('click', () => { idx = (idx - 1 + items.length) % items.length; update(); });
+  setInterval(() => { idx = (idx + 1) % items.length; update(); }, 6000);
+})();
+
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', function(user) {
+    if (!user) {
+      window.netlifyIdentity.on('login', function() {
+        document.location.href = '/admin/';
+      });
+    }
+  });
+}
+</script>
+</body>
+</html>
